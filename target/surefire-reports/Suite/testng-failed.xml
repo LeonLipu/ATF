@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite]">
+  <parameter name="configPath" value="./TestConfigs"/>
+  <test name="NewTest(failed)">
+    <parameter name="configPath" value="./TestConfigs"/>
+    <classes>
+      <class name="test.Test.GoogleTest">
+        <methods>
+          <include name="test2"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- test.Test.GoogleTest -->
+    </classes>
+  </test> <!-- NewTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

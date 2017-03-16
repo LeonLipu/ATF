@@ -1,0 +1,74 @@
+package test.Data;
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.io.*;
+import java.util.Properties;
+
+/**
+ * Created by brahmanandakar on 11/03/17.
+ */
+public class IO {
+
+
+    public static void main(String[] args) throws IOException {
+        // TODO Auto-generated method stub
+
+		/*
+		 * Properties prop = new Properties(); File file = new
+		 * File("config.properties"); FileInputStream input = new
+		 * FileInputStream(file); prop.load(input);
+		 * System.out.println(prop.get("url"));
+		 */
+        new IO().getdataset("dataset.csv");
+    }
+
+    /**
+     * This method will load the property file from location .
+     *
+     * @param path
+     * @return
+     */
+    public Properties loadPropertyFile(String path) {
+        Properties prop = new Properties();
+        File file = new File(path);
+        FileInputStream stream;
+        try {
+            stream = new FileInputStream(file);
+            prop.load(stream);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return prop;
+    }
+
+    /**
+     * Get all value form datasheet and put into double dimensional object array to give them data provider.
+     * @param fileuri
+     * @return
+     * @throws IOException
+     */
+    public Object[][] getdataset(String fileuri) throws IOException {
+
+        Object[][] ob = new Object[1000][];
+        Reader in = new FileReader(fileuri);
+        BufferedReader bfr = new BufferedReader(in);
+        String line;
+        int nooflinetoskip = 1, counter = 0, index = 0;
+
+        while ((line = bfr.readLine()) != null) {
+            if (nooflinetoskip <= counter)
+                ob[index++] = line.split(",");
+            counter++;
+        }
+        int nullcount = 999;
+
+        while (nullcount > 0) {
+            if (ob[nullcount] == null)
+                ob = ArrayUtils.removeAll(ob, nullcount);
+            nullcount--;
+        }
+        return ob;
+    }
+}
