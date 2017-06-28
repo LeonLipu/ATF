@@ -11,7 +11,7 @@
     <test name="NewTest">
         <parameter name="configPath" value="./TestConfigs" />
         <classes>
-            <class name="test.Test.GoogleTest" />
+            <class name="test.Test.Google" />
         </classes>
     </test>
 
