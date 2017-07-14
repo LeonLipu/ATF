@@ -16,6 +16,11 @@ public class SeleniumDriver {
 
     private WebDriver getDriver(String browserName) {
 
+        String os=System.getProperty("os.name");
+
+        if(os.contains("Window")){
+            System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+        }else
         System.setProperty("web.chrome.driver","chromedriver");
 
         switch (browserName.toLowerCase()) {
@@ -39,12 +44,18 @@ public class SeleniumDriver {
 
     public WebDriver initializeDriver() {
         IO io = new IO();
+
       //  PropertyConfigurator.configure("log4j.properties");
         String url = (String) io.loadPropertyFile("config.properties").get(
                 "url");
         WebDriver driver = new SeleniumDriver().getDriver((String) io
                 .loadPropertyFile("config.properties").get("browser"));
         driver.get(url);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.manage().window().maximize();
         return driver;
     }
