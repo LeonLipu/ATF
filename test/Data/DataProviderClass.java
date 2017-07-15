@@ -19,7 +19,7 @@ public class DataProviderClass {
      */
     @DataProvider(name="dataset")
     public static Object[][] getdata() throws IOException{
-        Object [][] ob= new IO().getdataset("./dataset.csv");
+        Object [][] ob= new IO().getdataset("./d  ataset.csv");
         return ob;
     }
 

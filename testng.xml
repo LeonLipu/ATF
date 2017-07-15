@@ -17,6 +17,9 @@
 
 
 
+
+
+
     <!-- Test -->
     <!-- <test name="secondtestcase"> <parameter name="configPath" value="./TestConfigs"
         /> <classes> <class name="com.bnkar.locator.SecondTestCase" /> </classes>
