@@ -91,6 +91,15 @@
         </dependency>
 
 
+        <!--for api test jersy client -->
+
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>1.19.1</version>
+        </dependency>
+
+
     </dependencies>
 
 
