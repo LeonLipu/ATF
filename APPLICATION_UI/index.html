@@ -1,0 +1,35 @@
+<script src="vue.js"></script>
+<script src="vue-resource.min.js"></script>
+
+
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+
+
+<div id="app2">
+
+    <p v-if="seen"> hello</p>
+</div>
+
+<div id="student">
+
+    <ol>
+        <li v-for="student in students">
+
+            <p> ID: {{student.id}}</p>
+            <p> Firstname: {{student.firstname}}</p>
+            <p>LastName: {{student.lastname}}</p>
+            <p>LastName: {{student.standard}}</p>
+
+        </li>
+
+
+    </ol>
+
+
+
+</div>
+
+
+<script src="app.js"></script>

@@ -25,3 +25,14 @@ classes
 methods
 tests
 
+
+within 1 hour
+
+  webservice(spring)
+ , UI(vue.js)
+  ,deployment()
+  ,selelenium automation
+  ,api automation 
+  ,dockerize application
+  ,jenkins with docker deployment 
+  ,swarm mode delopyment with load balancer
