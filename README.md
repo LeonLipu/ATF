@@ -1,9 +1,24 @@
-# ATF
-automation test framework
+# Full Stack Application
+##Application_Server
+1.It is spring application developed by springboot 
+
+##Application_UI
+1.It is developed by vue.js and bootstrap 
+
+##Application_API_TEST
+1.it is developed by using rest assured job 
+
+##Application_UI_TEST
+1.It is developed by selenium automation framework 
+##Application_CI
+1.It is developed by groovy through jenkinFile 
+##Application_CLOUD
+-it is developed by docker 
 
 
+//****************************************************
 
-#Selenium Grid
+Selenium Grid
 
 On Server machine run command 
 
