@@ -19,6 +19,12 @@ public class testApi {
         System.out.println(response.getStatusCode());
         System.out.print(response.getBody());
         System.out.println(response.getContentType());
+        System.out.println(response.getHeaders());
+
+
+
+        given().when().get("http://localhost:8080/students").then().statusCode(200);
+
     }
 
 
