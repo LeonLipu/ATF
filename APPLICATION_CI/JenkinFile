@@ -3,23 +3,34 @@ def pipeline(Map<String,String> dataSet){
 
 
 
-        stage('BuildGeneration'){
+    stage('BuildGeneration'){
 
-            sh 'mvn install -DskipTests'
+        sh 'mvn install -DskipTests'
 
-        }
+    }
 
-        stage('Selenium_Automation'){
+    stage("Starting API Server"){
 
-            sh 'mvn test'
-            junit '**/target/surefire-reports/TEST-*.xml'
+        sh 'nohup mvn exec:java -Dexec.mainClass="APPLICATION_SERVER.App" &'
+        sh 'until [ $status -ne "000" ];do status=$(curl -sL -w "%{http_code}\\n" "http://localhost:8080/" -o /dev/null);done'
 
-        }
+
+    }
+
+    stage('Selenium_Automation'){
+
+        sh 'mvn test'
+        junit '**/target/surefire-reports/TEST-*.xml'
+
+    }
+
+    stage('Stoping API Server'){
+
+        sh "kill -9 $(lsof -t -i :8080)"
+
+    }
 
 
 }
-
-
-
 
 return this;
