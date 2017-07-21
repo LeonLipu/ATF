@@ -1,0 +1,25 @@
+
+def pipeline(Map<String,String> dataSet){
+
+    def jobs=load("jobRepo.groovy");
+
+        stage('BuildGeneration'){
+
+            sh 'mvn install -DskipTests'
+
+        }
+
+        stage('Selenium_Automation'){
+
+            sh 'mvn test'
+            junit '**/target/surefire-reports/TEST-*.xml'
+
+        }
+
+
+}
+
+
+
+
+return this;
