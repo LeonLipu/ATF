@@ -41,6 +41,14 @@ methods
 tests
 
 
+
+step to start jenkin 
+-download updated jenkin.war file 
+ 
+ 
+ java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8090 
+
+
 within 1 hour
 
   webservice(spring)

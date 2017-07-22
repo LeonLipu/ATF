@@ -5,19 +5,23 @@ package APPLICATION_SERVER;
  */
 public class Student {
 
-    int id;
+    String id;
     String firstname;
     String lastname;
     String standard;
 
-    public Student(int id, String firstname, String lastname, String standard) {
+    public Student(String id, String firstname, String lastname, String standard) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.standard = standard;
     }
 
-    public int getId() {
+    //added for automatic type casting of from json to object
+    public Student() {
+    }
+
+    public String getId() {
         return id;
     }
 
