@@ -1,8 +1,6 @@
 
 def pipeline(Map<String,String> dataSet){
 
-
-
     stage('BuildGeneration'){
 
         sh 'mvn install -DskipTests'
@@ -10,13 +8,19 @@ def pipeline(Map<String,String> dataSet){
     }
 
     stage("Starting API Server"){
-
-        sh 'nohup mvn exec:java -Dexec.mainClass="APPLICATION_SERVER.App" &'
-        sh 'until [ $status -ne "000" ];do status=$(curl -sL -w "%{http_code}\\n" "http://localhost:8080/" -o /dev/null);done'
-
-
+        //start jenkin server by java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8090 to support background job
+        withEnv(['BUILD_ID=dontkill']) {
+            sh 'mvn exec:java -Dexec.mainClass="APPLICATION_SERVER.App" & '
+        }
     }
 
+    stage('check server up '){
+        def status=7;
+        while (status == 7){
+            status = sh (script: 'curl -sL -w "%{http_code}\\n" "http://localhost:8080/" -o /dev/null',returnStatus: true)
+            sleep(2);
+        }
+    }
     stage('Selenium_Automation'){
 
         sh 'mvn test'
@@ -26,11 +30,13 @@ def pipeline(Map<String,String> dataSet){
 
     stage('Stoping API Server'){
 
-        sh "kill -9 $(lsof -t -i :8080)"
+        sh "lsof -t -i :8080|xargs kill -9 "
 
     }
 
-
 }
+
+
+
 
 return this;
