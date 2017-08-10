@@ -23,11 +23,17 @@ def pipeline(Map<String,String> dataSet){
     }
     stage('Selenium_Automation'){
 
-        sh 'mvn test'
+        sh 'mvn clean test -Dsurefire.suiteXmlFiles=selenium.xml'
         junit '**/target/surefire-reports/TEST-*.xml'
 
     }
 
+    stage('API_Automation'){
+
+        sh 'mvn clean test -Dsurefire.suiteXmlFiles=RestApi.xml'
+        junit '**/target/surefire-reports/TEST-*.xml'
+
+    }
     stage('Stoping API Server'){
 
         sh "lsof -t -i :8080|xargs kill -9 "

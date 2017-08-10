@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <suite name="Suite" parallel="methods" thread-count="2" > -->
+<suite name="Suite"  >
+
+    <listeners>
+
+
+    </listeners>
+
+
+    <test name="NewTest">
+
+        <classes>
+            <class name="APPLICATION_API_TEST.testApi" />
+        </classes>
+    </test>
+
+
+
+
+
+
+    <!-- Test -->
+    <!-- <test name="secondtestcase"> <parameter name="configPath" value="./TestConfigs"
+        /> <classes> <class name="com.bnkar.locator.SecondTestCase" /> </classes>
+        </test> --> <!-- Test -->
+
+</suite>
