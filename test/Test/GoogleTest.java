@@ -27,7 +27,7 @@ public class GoogleTest {
         Googlebasepage googlepage = PageFactory.initElements(driver,
                 Googlebasepage.class);
         googlepage.entervalue(searchelement);
-        googlepage.doSearch();
+
     }
 
     @Test(dataProvider="dataset",dataProviderClass=DataProviderClass.class)
@@ -36,7 +36,7 @@ public class GoogleTest {
         Googlebasepage googlepage = PageFactory.initElements(driver,
                 Googlebasepage.class);
         googlepage.entervalue(firstname);
-        googlepage.doSearch();
+
 
     }
 

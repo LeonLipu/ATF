@@ -27,7 +27,7 @@ public class Google {
         Googlebasepage googlepage = PageFactory.initElements(driver,
                 Googlebasepage.class);
         googlepage.entervalue(searchelement);
-        googlepage.doSearch();
+       // googlepage.doSearch();
     }
 
 //    @Test(dataProvider="dataset",dataProviderClass=DataProviderClass.class)
