@@ -8,13 +8,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+
     <build>
         <sourceDirectory>.</sourceDirectory>
-        <testResources>
-            <testResource>
-                <directory>${project.basedir}/target/classes</directory>
-            </testResource>
-        </testResources>
+
         <plugins>
 
             <plugin>
@@ -22,6 +20,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.15</version>
                 <configuration>
+                    <suiteXmlFiles><!-- TestNG suite XML files -->
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
 
             </plugin>

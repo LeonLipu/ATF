@@ -2,7 +2,7 @@ package APPLICATION_API_TEST;
 
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
-import org.junit.Test;
+import org.testng.annotations.Test;;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
