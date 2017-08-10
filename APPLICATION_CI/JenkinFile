@@ -30,7 +30,8 @@ def pipeline(Map<String,String> dataSet){
 
     stage('API_Automation'){
 
-        sh 'mvn test -DsuiteXmlFile=selenium.xml'
+        sh 'mvn clean '
+        sh 'mvn test -DsuiteXmlFile=RestApi.xml'
         junit '**/target/surefire-reports/TEST-*.xml'
 
     }
